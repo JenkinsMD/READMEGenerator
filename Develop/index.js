@@ -4,7 +4,7 @@ const fs = require('fs');
 const util = require('util');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-console.log("yoyoyo")
+
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -18,6 +18,26 @@ const questions = () => {
         type: 'input',
         name: 'description',
         message: 'Describe the project?',
+      },
+      {
+        type: 'input',
+        name: 'install',
+        message: 'Do you have any installation instructions?',
+      },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'Do you have any usage information?',
+      },
+      {
+        type: 'input',
+        name: 'contribution',
+        message: 'Do you have any contribution information?',
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'Do you have any test information?',
       },
       {
         type: 'list',
@@ -47,10 +67,9 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const init = () => {
     questions()
       .then((answers) => {
-        console.log("first then")
-        // generateMarkdown.renderLicenseSection(answers)
+       
         generateMarkdown.renderLicenseBadge(answers)
-        console.log(answers)
+        
         return answers
        
     })
@@ -62,7 +81,7 @@ const init = () => {
 
 
 // Function call to initialize app
-console.log("Before init")
+
 init();
 
 

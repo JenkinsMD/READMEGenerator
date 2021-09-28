@@ -1,10 +1,10 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
+// Adds license badge, link, and info based off user input and adds to the prompt object
 function renderLicenseBadge(answers) {
   
     switch(answers.license) {
       case 'MIT':
-            console.log("MIT")
+            
             answers["badge"] = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
             answers["licenseLink"] = 'https://opensource.org/licenses/MIT';
             answers["licenseInfo"] = `Copyright 2021 Grimace
@@ -17,7 +17,7 @@ function renderLicenseBadge(answers) {
 
             break;
       case 'GNU':
-            console.log("GNU")
+            
             answers["badge"] = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ';
             answers["licenseLink"] = 'https://www.gnu.org/licenses/gpl-3.0';
             answers["licenseInfo"] = `    Copyright (C) 2021  Grimace
@@ -39,7 +39,7 @@ function renderLicenseBadge(answers) {
 
             break;
       case 'Apache':
-            console.log("apache")
+            
             answers["badge"] = '[![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)';
             answers["licenseLink"] = 'https://opensource.org/licenses/Apache-2.0';
             answers["licenseInfo"] = `   Copyright 2021 Grimace
@@ -59,7 +59,7 @@ function renderLicenseBadge(answers) {
 
             break;
       case 'None':
-            console.log("none")
+            
             answers["badge"] = '';
             answers["licenseLink"] = '';
             answers["licenseInfo"] = ``;
@@ -72,53 +72,48 @@ function renderLicenseBadge(answers) {
   }
   
 
-
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-
-
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  console.log("inside render")
-  license["key3"] = "key4";
-    return license;
- 
-}
-
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) { console.log("insideGM")
-  return `# ${data.title}
+function generateMarkdown(data) {
+  return `# ${data.title} ${data.badge}
+
 
   ## Table of Contents
+  #### - [Installation](#installation)
+  #### - [Usage](#usage)
+  #### - [Contributions](#contributions)
+  #### - [Tests](#tests)
+  #### - [License](#license)
+  #### - [Questions](#questions)
+  
 
-  ## Installation
+  ## [Installation](#installation)
+  ${data.install} 
 
-  ## Usage
+  ## [Usage](#usage)
+  ${data.usage}
 
-  ## License - ${data.license} ${data.badge}
+  ## [Contributions](#contributions)
+  ${data.contribution}
+
+  ## [Tests](#tests)
+  ${data.tests}
+
+  ## [License](#license) - ${data.license} 
   ${data.licenseLink}
-
   ${data.licenseInfo}
 
-  ## Contributing
-
-  ## Tests
-
-  ## Questions(#questions)
-  Profile: ${data.github}
-  Email: ${data.email}
+  ## [Questions](#questions)
+  Find me on Github at: [${data.github}](https://www.github.com/${data.github})
+  
+  or
+  
+  Email me at: ${data.email}
 
 `;
 }
 
 module.exports = {
   generateMarkdown,
-  renderLicenseSection,
   renderLicenseBadge
 
 }
