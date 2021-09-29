@@ -35,10 +35,10 @@ THEN I am taken to the corresponding section of the README
 
 # Page link
 
- https://jenkinsmd.github.io/HW6-Dashboard/
+https://jenkinsmd.github.io/READMEGenerator/
 
 ## Mock-Up
 
 The following video shows the web application's appearance and functionality:
 
-![Project Demo.](https://youtu.be/F5UMn-WUXvo)
+https://youtu.be/F5UMn-WUXvo
